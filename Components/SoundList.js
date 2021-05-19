@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity } from 'react-native';
 import { Audio } from "expo-av"
-
+import { useNavigation } from "@react-navigation/native";
 const numColumns = 4;
 
 const sounds = [
@@ -31,7 +31,8 @@ const sounds = [
     require('../assets/taiko.wav'),
 ];
 
-const SoundList = ({ navigation }) => {
+const SoundList = () => {
+    const navigation = useNavigation();
     const [sound, setSound] = useState();
 
     const playSound = async (index) => {
@@ -71,9 +72,7 @@ const SoundList = ({ navigation }) => {
             <Button
                 style={{ width: 50 }}
                 title='Save'
-                onPress={() => {
-                    console.log('Bouton cliqué !');
-                }}>
+                onPress={() => navigation.navigate('Save')}>
             </Button>
             <Button
                 style={{ width: 10 }}
