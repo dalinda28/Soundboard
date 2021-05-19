@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity } from 'react-native';
 import { Audio } from "expo-av"
 import { useNavigation } from "@react-navigation/native";
+
 const numColumns = 4;
 
 const sounds = [
@@ -72,7 +73,7 @@ const SoundList = () => {
             <Button
                 style={{ width: 50 }}
                 title='Save'
-                onPress={() => navigation.navigate('Save')}>
+                onPress={() => navigation.navigate('SettingPage')}>
             </Button>
             <Button
                 style={{ width: 10 }}
