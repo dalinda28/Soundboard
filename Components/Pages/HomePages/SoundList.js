@@ -1,38 +1,39 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Audio } from "expo-av"
 import { useNavigation } from "@react-navigation/native";
 
 const numColumns = 4;
 
 const sounds = [
-    require('../assets/cymbal.wav'),
-    require('../assets/daibyoshi.wav'),
-    require('../assets/doh.wav'),
-    require('../assets/med_taiko.wav'),
-    require('../assets/miyadaiko.wav'),
-    require('../assets/taiko.wav'),
-    require('../assets/tsuzumi.wav'),
-    require('../assets/cymbal.wav'),
-    require('../assets/daibyoshi.wav'),
-    require('../assets/doh.wav'),
-    require('../assets/med_taiko.wav'),
-    require('../assets/miyadaiko.wav'),
-    require('../assets/taiko.wav'),
-    require('../assets/tsuzumi.wav'),
-    require('../assets/cymbal.wav'),
-    require('../assets/daibyoshi.wav'),
-    require('../assets/doh.wav'),
-    require('../assets/med_taiko.wav'),
-    require('../assets/miyadaiko.wav'),
-    require('../assets/taiko.wav'),
-    require('../assets/tsuzumi.wav'),
-    require('../assets/taiko.wav'),
-    require('../assets/tsuzumi.wav'),
-    require('../assets/taiko.wav'),
+    require('../../../assets/Sound/cymbal.wav'),
+    require('../../../assets/Sound/daibyoshi.wav'),
+    require('../../../assets/Sound/doh.wav'),
+    require('../../../assets/Sound/med_taiko.wav'),
+    require('../../../assets/Sound/miyadaiko.wav'),
+    require('../../../assets/Sound/taiko.wav'),
+    require('../../../assets/Sound/tsuzumi.wav'),
+    require('../../../assets/Sound/cymbal.wav'),
+    require('../../../assets/Sound/daibyoshi.wav'),
+    require('../../../assets/Sound/doh.wav'),
+    require('../../../assets/Sound/med_taiko.wav'),
+    require('../../../assets/Sound/miyadaiko.wav'),
+    require('../../../assets/Sound/taiko.wav'),
+    require('../../../assets/Sound/tsuzumi.wav'),
+    require('../../../assets/Sound/cymbal.wav'),
+    require('../../../assets/Sound/daibyoshi.wav'),
+    require('../../../assets/Sound/doh.wav'),
+    require('../../../assets/Sound/med_taiko.wav'),
+    require('../../../assets/Sound/miyadaiko.wav'),
+    require('../../../assets/Sound/taiko.wav'),
+    require('../../../assets/Sound/tsuzumi.wav'),
+    require('../../../assets/Sound/taiko.wav'),
+    require('../../../assets/Sound/tsuzumi.wav'),
+    require('../../../assets/Sound/taiko.wav'),
 ];
 
 const SoundList = () => {
+    
     const navigation = useNavigation();
     const [sound, setSound] = useState();
 
@@ -55,7 +56,7 @@ const SoundList = () => {
 
 
     return (
-        <View style={styles.container}>
+        <View>
             <FlatList
                 data={sounds}
                 renderItem={({ item, index }) => (
@@ -70,31 +71,13 @@ const SoundList = () => {
                 )}
                 numColumns={numColumns}
             />
-            <Button
-                style={{ width: 50 }}
-                title='Save'
-                onPress={() => navigation.navigate('SettingPage')}>
-            </Button>
-            <Button
-                style={{ width: 10 }}
-                title='About'
-                onPress={() => {
-                    console.log('Bouton cliqué !');
-                }}>
-            </Button>
-
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        margin: 1
-    },
     item: {
-        backgroundColor: '#2980b9',
+        backgroundColor: '#a6c1ee',
         alignItems: 'center',
         justifyContent: "center",
         flex: 1,
