@@ -1,10 +1,11 @@
 import React from 'react'
-import HomePage from '../Components/HomePage'
-import SettingPage from '../Components/SettingPage'
-import Trimming from '../Components/Trimming'
-import Library from '../Components/Library'
-import Microphone from '../Components/Microphone'
-import LibraryApi from '../Components/LibraryApi'
+import HomePage from '../Components/Pages/HomePage/HomePage'
+import SettingPage from '../Components/Pages/SettingPage'
+import Trimming from '../Components/Pages/Trimming'
+import Library from '../Components/Pages/Library'
+import Microphone from '../Components/Pages/Microphone'
+import LibraryApi from '../Components/Pages/Freesound/LibraryApi'
+import About from '../Components/Pages/About'
 
 Library
 import { createStackNavigator } from '@react-navigation/stack';
@@ -21,7 +22,7 @@ const Navigation = () => {
             <Stack.Screen name="Library" component={Library} />
             <Stack.Screen name="Microphone" component={Microphone} />
             <Stack.Screen name="LibraryApi" component={LibraryApi} />
-
+            <Stack.Screen name="About" component={About} />
         </Stack.Navigator>
     );
 }
