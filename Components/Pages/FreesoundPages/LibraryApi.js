@@ -10,16 +10,11 @@ const LibraryApi = () => {
 	const [listSounds, setListSounds] = useState([])
 
 	const handleSubmit = () => {
-		if (search !== "") {
-			searchSoundAPI(search).then((result) => {
-				console.log(result)
-				let newTab = [...listSounds]
-				newTab.length = 0
-				newTab = result
-				setListSounds(newTab)
-			})
-		}
-	}
+        searchSoundAPI(search).then((result) => {
+          console.log(result);
+          setListSounds(result);
+        });
+    };
 
     useEffect(() => {
 		const timeout = setTimeout(handleSubmit, 800)

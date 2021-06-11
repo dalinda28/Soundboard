@@ -1,11 +1,11 @@
 import React from 'react'
-import HomePage from '../Components/Pages/HomePage/HomePage'
-import SettingPage from '../Components/Pages/SettingPage'
+import HomePage from '../Components/Pages/HomePages/HomePage'
+import SettingPage from '../Components/Pages/OtherPages/SettingPage'
 import Trimming from '../Components/Pages/Trimming'
-import Library from '../Components/Pages/Library'
+import Library from '../Components/Pages/LibraryPages/Library'
 import Microphone from '../Components/Pages/Microphone'
-import LibraryApi from '../Components/Pages/Freesound/LibraryApi'
-import About from '../Components/Pages/About'
+import LibraryApi from '../Components/Pages/FreesoundPages/LibraryApi'
+import About from '../Components/Pages/OtherPages/About'
 
 Library
 import { createStackNavigator } from '@react-navigation/stack';
@@ -16,13 +16,84 @@ const Navigation = () => {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="HomePage" component={HomePage} />
-            <Stack.Screen name="SettingPage" component={SettingPage} />
-            <Stack.Screen name="Trimming" component={Trimming} />
-            <Stack.Screen name="Library" component={Library} />
-            <Stack.Screen name="Microphone" component={Microphone} />
-            <Stack.Screen name="LibraryApi" component={LibraryApi} />
-            <Stack.Screen name="About" component={About} />
+            <Stack.Screen name="HomePage"
+                component={HomePage}
+                options={{
+                    title: 'Home',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
+            <Stack.Screen name="SettingPage" component={SettingPage}
+                options={{
+                    title: 'Setting',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
+            <Stack.Screen name="Trimming" component={Trimming}
+                options={{
+                    title: 'Trimming',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
+            <Stack.Screen name="Library" component={Library} 
+            options={{
+                title: 'Library',
+                headerStyle: {
+                    backgroundColor: '#8e94f2',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }}/>
+            <Stack.Screen name="Microphone" component={Microphone}
+                options={{
+                    title: 'Microphone',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
+            <Stack.Screen name="LibraryApi" component={LibraryApi}
+                options={{
+                    title: 'Api Freesound',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
+            <Stack.Screen name="About" component={About}
+                options={{
+                    title: 'About',
+                    headerStyle: {
+                        backgroundColor: '#8e94f2',
+                    },
+                    headerTintColor: '#fff',
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                    },
+                }} />
         </Stack.Navigator>
     );
 }

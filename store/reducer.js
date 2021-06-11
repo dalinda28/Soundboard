@@ -40,13 +40,12 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD:
             console.log(action);
-            let id = action.payload.id;
-            let name = action.payload.name;
-            let url = action.payload.previews['preview-lq-mp3'];
-            const sample = {id: id, name: name, url: url}
+            let idFreesound = [state.length - 1].id + 1;
+            let nameFreesound = action.payload.name;
+            let urlFreesound = action.payload.previews['preview-lq-mp3'];
+            const sample = {id: idFreesound, name: nameFreesound, url: urlFreesound}
             return { ...state, samples: [...state.samples, sample] };
         case REMOVE:
-            console.log(action.payload.id);
             return {
                 ...state,
                 samples: state.samples.filter(sample => sample.id !== action.payload.id)

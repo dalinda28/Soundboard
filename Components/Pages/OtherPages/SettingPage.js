@@ -44,14 +44,14 @@ const styles = StyleSheet.create({
     },
     container1: {
         alignItems: 'center',
-        flexDirection: 'initial',
+        flexDirection: 'row',
         paddingTop: 150,
         paddingLeft: 10,
     },
     container2: {
         alignItems: 'center',
         width: 200,
-        flexDirection: 'initial',
+        flexDirection: 'row',
         paddingTop: 40,
         paddingLeft: 10,
     },

@@ -2,69 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Audio } from "expo-av"
 import { useNavigation } from "@react-navigation/native";
+import { defaultSelector } from "../../../slices/SoundsSlice";
+import { useSelector } from "react-redux";
 
 const numColumns = 4;
-
-const sounds = [
-    require('../../../assets/Sound/cymbal.wav'),
-    require('../../../assets/Sound/daibyoshi.wav'),
-    require('../../../assets/Sound/doh.wav'),
-    require('../../../assets/Sound/med_taiko.wav'),
-    require('../../../assets/Sound/miyadaiko.wav'),
-    require('../../../assets/Sound/taiko.wav'),
-    require('../../../assets/Sound/tsuzumi.wav'),
-    require('../../../assets/Sound/cymbal.wav'),
-    require('../../../assets/Sound/daibyoshi.wav'),
-    require('../../../assets/Sound/doh.wav'),
-    require('../../../assets/Sound/med_taiko.wav'),
-    require('../../../assets/Sound/miyadaiko.wav'),
-    require('../../../assets/Sound/taiko.wav'),
-    require('../../../assets/Sound/tsuzumi.wav'),
-    require('../../../assets/Sound/cymbal.wav'),
-    require('../../../assets/Sound/daibyoshi.wav'),
-    require('../../../assets/Sound/doh.wav'),
-    require('../../../assets/Sound/med_taiko.wav'),
-    require('../../../assets/Sound/miyadaiko.wav'),
-    require('../../../assets/Sound/taiko.wav'),
-    require('../../../assets/Sound/tsuzumi.wav'),
-    require('../../../assets/Sound/taiko.wav'),
-    require('../../../assets/Sound/tsuzumi.wav'),
-    require('../../../assets/Sound/taiko.wav'),
-];
 
 const SoundList = () => {
     
     const navigation = useNavigation();
-    const [sound, setSound] = useState();
+    const defaultSounds = useSelector(defaultSelector);
 
     const playSound = async (index) => {
-        console.log("loading sound");
-        const { sound } = await Audio.Sound.createAsync(sounds[index]);
-        setSound(sound);
-        console.log("playing sound");
-        console.log(`playSound: ${index}`);
+        const { sound } = await Audio.Sound.createAsync(index);
         await sound.playAsync();
     };
-
-    useEffect(() => {
-        return () => {
-            if (sound) {
-                sound.unloadAsync();
-            }
-        };
-    }, [sound]);
-
 
     return (
         <View>
             <FlatList
-                data={sounds}
-                renderItem={({ item, index }) => (
+                data={defaultSounds}
+                renderItem={({ item }) => (
                     <View style={styles.item}>
-                        <Text style={styles.itemText}>{item.key}</Text>
                         <TouchableOpacity
                             style={styles.touchItem}
-                            onPress={() => playSound(index)}
+                            onPress={() => playSound(item.download)}
                             onLongPress={() => navigation.navigate('SettingPage')}>
                         </TouchableOpacity>
                     </View>
@@ -77,7 +38,7 @@ const SoundList = () => {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: '#a6c1ee',
+        backgroundColor: '#ada7ff',
         alignItems: 'center',
         justifyContent: "center",
         flex: 1,
@@ -85,9 +46,6 @@ const styles = StyleSheet.create({
         height: 100,
         width: 100,
         borderRadius: 9,
-    },
-    itemText: {
-        color: '#fff',
     },
     touchItem: {
         alignItems: 'center',

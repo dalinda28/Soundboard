@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
-import reducer from "./reducer"
+import SoundsSliceReducer from "../slices/SoundsSlice"
+
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 export default configureStore({
 	reducer: {
-		sounds: reducer,
-	},
+		sounds: SoundsSliceReducer,
+		middleware : [ thunk , logger ] , 	},
 })
