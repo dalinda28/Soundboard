@@ -3,6 +3,7 @@ Soundboard is a React Native school project carried out in Juin 2021.
 
 ## Architecture
 -----------
+```
 Componenets
 ├── FreesoundPages
 │     └── LibraryApi.js
@@ -22,7 +23,7 @@ Componenets
 ├── Microphone.js
 │ 
 └── Trimming.js
-
+```
 **FreesoundPages :**
 FreesoundPages : This component contain two files: LibraryApi.js  which call the searchSoundAPI function (in the freesoundAPI.js file) to request the API.
 and the SoundItem.js file where we find the playSound function to listen to the sound when pressing.<br/>
