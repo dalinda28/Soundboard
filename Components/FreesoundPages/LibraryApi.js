@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { StyleSheet, Text, View , TextInput, FlatList} from 'react-native';
 import SoundItem from "./SoundItem";
 
-import {searchSoundAPI, getSound} from '../../../API/freesoundAPI'
+import {searchSoundAPI, getSound} from '../../API/freesoundAPI'
 
 
 const LibraryApi = () => {

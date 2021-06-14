@@ -2,21 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Button, FlatList, ScrollView, Image, TextInput } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
 import { useSelector } from "react-redux";
-import { defaultSelector } from "../../../slices/SoundsSlice";
 import { useDispatch } from "react-redux";
-import { deleteSound } from '../../../slices/SoundsSlice';
+import { deleteSound, defaultSelector } from '../../slices/SoundsSlice';
 import { Audio } from "expo-av";
 
-export default function DefaultsoundsTab() {
+const Library = ({ id }) => {
 
     const defaultSounds = useSelector(defaultSelector);
-    const deleteS = useSelector(deleteSound);
     const dispatch = useDispatch();
 
     const playSound = async (index) => {
         const { sound } = await Audio.Sound.createAsync(index);
         await sound.playAsync();
     };
+
+    const remove = () => {
+        dispatch(deleteSound(id));
+        console.log('removed')
+    }
 
     return (
         <View style={styles.container}>
@@ -51,7 +54,7 @@ export default function DefaultsoundsTab() {
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                     style={styles.touchableTwo}
-                                    onPress={() => deleteSoundLibrary(item)}>
+                                    onPress={remove}>
                                     <AntDesign
                                         name="delete"
                                         color="white"
@@ -60,16 +63,12 @@ export default function DefaultsoundsTab() {
                                 </TouchableOpacity>
                             </View>
                         )}
-                    keyExtractor={item => item.id} />
+                    keyExtractor={(item) => item.id.toString()} />
             </ScrollView>
         </View>
 
     );
 
-    function deleteSoundLibrary(sound) {
-        const index = deleteS.btn_id;
-        dispatch(deleteSound({ index: index, sound: sound }));
-    }
 }
 
 const styles = StyleSheet.create({
@@ -106,3 +105,4 @@ const styles = StyleSheet.create({
     }
 
 });
+export default Library;

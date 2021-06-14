@@ -45,15 +45,15 @@ const styles = StyleSheet.create({
     container1: {
         alignItems: 'center',
         flexDirection: 'row',
-        paddingTop: 150,
-        paddingLeft: 10,
+        paddingTop: 100,
+        paddingLeft: 30,
     },
     container2: {
         alignItems: 'center',
         width: 200,
         flexDirection: 'row',
-        paddingTop: 40,
-        paddingLeft: 10,
+        paddingTop: 50,
+        paddingLeft: 30,
     },
     buttonTrimming: {
         backgroundColor: 'red',

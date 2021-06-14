@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+ * Sounds slice that contain sampler state and enable to add, edit and remove information from sounds
+ * */
 export const SoundsSlice = createSlice({
     name: "sounds",
     initialState: [
@@ -102,19 +105,34 @@ export const SoundsSlice = createSlice({
     ],
 
     reducers: {
-        addSound (state, action) {
-            state.push(action.payload)
+        addSound: (state, action) => {
+            return [
+                ...state,
+                {
+                    name: action.payload.name,
+                    type: action.payload.type,
+                    req: action.payload.req,
+                    id: state[state.length - 1].id + 1,
+                }
+            ]
         },
-        editSound (state,action) {
-            state.sounds = state.sounds.map((sound) => sound.id === action.payload.id ? sound = action.payload : true);
+        editSound: (state, action) => {
+            return state.map((item) => {
+                if (item.id === action.payload.id) {
+                    return { ...item, ...action.payload }
+                } else {
+                    return item
+                }
+            })
         },
-        deleteSound(state, action) {
-            state.sounds = state.sounds.filter((sound) => sound.id !== action.payload.id);
-        }
+        deleteSound: (state, action) => {
+            return state.filter((item) => item.id != action.payload);
+        },
     },
 });
-  
-export const { addSound, editSound, deleteSound } = SoundsSlice.actions;
-export default SoundsSlice.reducer;
-export const soundsSelector = (state) => state.sounds;
+
+export const { addSound, editSound, deleteSound } = SoundsSlice.actions; //reducer methods
+export default SoundsSlice.reducer; //reducer
+
+export const soundsSelector = (state) => state.sounds; //selector
 export const defaultSelector = (state) => state.sounds.filter((sound) => sound.type === "default");

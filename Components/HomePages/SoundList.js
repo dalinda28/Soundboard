@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
 import { Audio } from "expo-av"
 import { useNavigation } from "@react-navigation/native";
-import { defaultSelector } from "../../../slices/SoundsSlice";
+import { defaultSelector } from "../../slices/SoundsSlice";
 import { useSelector } from "react-redux";
 
 const numColumns = 4;
@@ -42,17 +42,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "center",
         flex: 1,
-        margin: 10,
-        height: 100,
+        margin: 5,
+        height: 90,
         width: 100,
-        borderRadius: 9,
+        borderRadius: 5,
     },
     touchItem: {
         alignItems: 'center',
         justifyContent: "center",
         flex: 1,
-        height: 100,
-        width: 100
+        height: 90,
+        width: 80
     }
 })
 
