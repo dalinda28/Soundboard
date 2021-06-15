@@ -5,6 +5,9 @@ import { createSlice } from "@reduxjs/toolkit";
  * */
 export const SoundsSlice = createSlice({
     name: "sounds",
+    /**
+     * List of sounds
+     */
     initialState: [
         {
             id: 0,
@@ -105,17 +108,16 @@ export const SoundsSlice = createSlice({
     ],
 
     reducers: {
-        addSound: (state, action) => {
-            return [
-                ...state,
-                {
-                    name: action.payload.name,
-                    type: action.payload.type,
-                    req: action.payload.req,
-                    id: state[state.length - 1].id + 1,
-                }
-            ]
-        },
+        /**
+		 * Add new sound to the library
+         * */
+        addSound(state, action) {
+			const { id, type, name, uri } = action.payload
+			state.sounds.push({ id, type, name, uri })
+		},
+        /**
+		 * edit a sound from the library
+         * */
         editSound: (state, action) => {
             return state.map((item) => {
                 if (item.id === action.payload.id) {
@@ -125,6 +127,9 @@ export const SoundsSlice = createSlice({
                 }
             })
         },
+        /**
+		 * Remove a sound from the library
+         * */
         deleteSound: (state, action) => {
             return state.filter((item) => item.id != action.payload);
         },

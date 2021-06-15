@@ -12,6 +12,9 @@ const SoundItem = ({ item }) => {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const dispatch = useDispatch();
 
+	/**
+	 * Play the sound
+	 */
 	const playSound = async () => {
 		console.log("loading sound");
 		const { sound } = await Audio.Sound.createAsync({ uri: item.previews['preview-lq-mp3'] });
@@ -21,6 +24,9 @@ const SoundItem = ({ item }) => {
 		setIsPlaying(true);
 	};
 
+	/**
+	 * Pause the sound
+	 */
 	const pauseSound = async () => {
 		await sound.pauseAsync();
 		setIsPlaying(false);
@@ -35,6 +41,9 @@ const SoundItem = ({ item }) => {
 			: undefined;
 	}, [sound]);
 
+	/**
+	 * Add the sound to the local library
+	 */
 	const add = (id) => {
 		dispatch(addSound({
 			id: item.id,

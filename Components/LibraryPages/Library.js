@@ -11,11 +11,17 @@ const Library = ({ id }) => {
     const defaultSounds = useSelector(defaultSelector);
     const dispatch = useDispatch();
 
+    /**
+	 * Play the sound
+	 */
     const playSound = async (index) => {
         const { sound } = await Audio.Sound.createAsync(index);
         await sound.playAsync();
     };
 
+    /**
+	 * Remove the sound
+	 */
     const remove = () => {
         dispatch(deleteSound(id));
         console.log('removed')
