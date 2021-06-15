@@ -9,6 +9,9 @@ const LibraryApi = () => {
     const [search, setSearch] = useState("")
 	const [listSounds, setListSounds] = useState([])
 
+    /**
+	 * Load sounds from freesound
+	 */
 	const handleSubmit = () => {
         searchSoundAPI(search).then((result) => {
           console.log(result);

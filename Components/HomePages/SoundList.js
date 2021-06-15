@@ -12,6 +12,9 @@ const SoundList = () => {
     const navigation = useNavigation();
     const defaultSounds = useSelector(defaultSelector);
 
+    /**
+	 * Play the sound
+	 */
     const playSound = async (index) => {
         const { sound } = await Audio.Sound.createAsync(index);
         await sound.playAsync();
