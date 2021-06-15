@@ -8,18 +8,14 @@ const HomePage = () => {
     return (
         <View style={styles.container}>
             <SoundList />
-            <Button
-                style={styles.button}
-                title='Save'
-                color="#04befe"
-                onPress={() => navigation.navigate('SettingPage')}>
-            </Button>
+            <View style={{position: 'absolute', left: 0, right: 0, bottom: 0}}>
             <Button
                 style={styles.button}
                 title='About'
-                color="#04befe"
+                color="#8e94f2"
                 onPress={() => navigation.navigate('About')}>
             </Button>
+            </View>
         </View>
     )
 }
@@ -27,18 +23,14 @@ const HomePage = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'black',
+        height: 750
     },
     button: {
-        paddingVertical: 100,
-        paddingHorizontal: 16,
-        borderRadius: 10,
+        paddingTop: 200,
+        borderRadius: 10,        
         marginHorizontal: 12,
         alignItems: 'center',
         width: 150
-    },
-    fixToText: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
     },
 })
 export default HomePage;
