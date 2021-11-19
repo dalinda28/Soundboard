@@ -39,3 +39,6 @@ It took me a long time to arrive at an unconvincing result.<br/>
 
 ## Conclusion
 It's a very interesting project, it allowed me to understand a lot of things like the interaction with the API and also many other features of redux and expo.
+
+##Screenshoot 
+![alt text](https://github.com/dalinda28/Soundboard/blob/main/Soundboard1.png?raw=true)
